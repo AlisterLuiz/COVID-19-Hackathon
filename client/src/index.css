@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+.shop-services > .shop-service > .service-icon{
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25em;
+}
+
+.carousel .slider-wrapper ul.slider {
+  max-height: 400px;
+}
+
+.nearby-stores-section .nav-pills .nav-link {
+  border-radius: 0;
+}
