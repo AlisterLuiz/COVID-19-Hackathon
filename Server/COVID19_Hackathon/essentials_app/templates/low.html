@@ -1,0 +1,10 @@
+{% extends 'hi.html' %}
+
+{% block content %}
+  <form method="post" action="/about/">
+    {% csrf_token %}
+    <input type="text" name="username">
+    <button type="submit">Sign up</button>
+  </form>
+  <a href="/about/">About Me</a>
+{% endblock %}

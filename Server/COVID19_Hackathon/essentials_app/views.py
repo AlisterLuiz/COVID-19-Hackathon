@@ -4,6 +4,7 @@ from googleplaces import GooglePlaces, types, lang
 import random
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
+from django.views.generic import TemplateView
 
 config = {
   "apiKey": "AIzaSyBk3hKgOO2SrqosNhsmipgEzi_tHQ921lE",
@@ -16,12 +17,25 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
+# Create your views here.
+class HomePageView(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'low.html', context=None)
+
+class AboutPageView(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'hi.html', context=None)
+    def post(self, request, **kwargs):
+        print("POST ROUTE CALLED!")
+        print(request.POST["username"])
+        print(self)
+        return render(request, 'hi.html', context=None)
 
 # Create your views here.
 
-class SignUpView(CreateView):
-    template_name = 'core/signup.html'
-    form_class = UserCreationForm
+# class SignUpView(CreateView):
+#     template_name = 'essentials_app/low.html'
+#     form_class = UserCreationForm
 
 # def hi(request):
 #     return render(request, 'essentials_app/hi.html')
@@ -34,12 +48,6 @@ def matchData(request):
             lat_lng={'lat': 25.3526878, 'lng': 55.3836953}, 
             radius=2000,
             types=[types.TYPE_GROCERY_OR_SUPERMARKET])
-
-
-
-
-
-
 
 
 def insertData(request):
