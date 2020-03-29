@@ -20,7 +20,7 @@ db = firebase.database()
 # Create your views here.
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'low.html', context=None)
+        return render(request, 'low.html', {'message':'this is a lol'})
 
 class AboutPageView(TemplateView):
     def get(self, request, **kwargs):
