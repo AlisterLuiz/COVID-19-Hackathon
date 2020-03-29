@@ -24,10 +24,13 @@
     {% block stylesheet %}{% endblock %}
   </head>
   <body class="my-3">
-    <header>
-      <ul class="nav justify-content-between font-weight-bold text-uppercase">
+    <header class="container">
+      <ul class="nav justify-content-between align-items-center font-weight-bold text-uppercase">
         <li class="nav-item">
-          <a class="nav-link active h2 font-weight-bold text-success" href="/">Essentials</a>
+          <a class="nav-link active text-success" href="/">
+            <i class="fab fa-pagelines fa-3x"></i>
+            <span class="h2 font-weight-bold">Essentials</span>
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-success" href="/cart">
@@ -41,8 +44,9 @@
       {% block content %}
       {% endblock %}
     </main>
-    <footer class="text-center">
+    <footer class="text-center container">
       <h6>Crafted with <i class="fas fa-heart text-danger"></i> by <a href="mailto:ak125@hw.ac.uk">Aaish</a>, <a href="mailto:agl2@hw.ac.uk">Alister</a> and <a href="mailto:rmm8@hw.ac.uk">Rikesh</a></h6>
+      <h6>Stay Home, Stay Safe!</h6>
     </footer>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="{% static 'js/app.js' %}"></script>

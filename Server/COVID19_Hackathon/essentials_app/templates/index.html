@@ -4,6 +4,7 @@
 <style>
     .shop-category {
         position: relative;
+        overflow: hidden;
     }
 
     .shop-category::before {
@@ -28,11 +29,18 @@
 
 {% block content %}
 <!-- Container starts -->
-<div class="">
+<div class="container">
     <!-- Home section starts -->
     <div class="home-section">
-        <!-- Shop categories start -->
-        <div class="shop-categories d-flex flex-column p-3">
+        <!-- News section starts -->
+        <div class="news-section">
+            <div class="alert alert-info" role="alert">
+                Go Corona Go!
+            </div>
+        </div>
+        <!-- News section ends -->
+        <!-- Shop categories starts -->
+        <div class="shop-categories d-flex flex-column">
             <!-- Shop category starts -->
             <a href="/shop/pharmacy" class="text-decoration-none shop-category pharmacy bg-danger w-100 mb-3 px-3 py-5 rounded">
                 <h3 class="text-uppercase text-white font-weight-bold"><span>Pharmacies &amp; Medical Stores</span></h3>

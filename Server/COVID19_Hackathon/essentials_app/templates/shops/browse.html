@@ -92,46 +92,48 @@
                 {% for shop in shops %}
                     <!-- List shop card starts -->
                     <li class="list-group-item list-shop-card bg-light  p-3 rounded shadow mb-3">
-                        <div class="shop-card">
-                            <div class="store-information mb-2">
-                                <div class="store-name d-flex align-items-top justify-content-between">
+                        <div class="shop-card d-flex align-items-center justify-content-between">
+                            <div class="">
+                                <div class="store-information mb-2">
                                     <h4 class="mb-0 mr-3 text-dark text-uppercase font-weight-bold">{{ shop.name }}</h4>
-                                    <h6 class="mb-0 text-success">Last updated: <span>1 min</span> ago</h6>
+                                    <p class="mb-0 text-secondary">{{ shop.vicinity }}</p>
+                                    <h6 class="mb-0 text-dark">2.5 Km Away</h6>
+                                    <h6 class="mb-0 text-dark">Open Till: <span>{{ shop.openTill }}</span></h6>
+                                    <h5 class="mb-0 text-success text-uppercase font-weight-bold">Open Now</h5>
                                 </div>
-                                <p class="mb-0 text-secondary">{{ shop.vicinity }}</p>
-                                <h6 class="mb-0 text-dark">2.5 Km Away</h6>
-                                <h6 class="mb-0 text-dark">Open Till: <span>{{ shop.openTill }}</span></h6>
-                                <h5 class="mb-0 text-success text-uppercase font-weight-bold">Open Now</h5>
-                            </div>
-    
-                            <div class="occupancy mb-2">
-                                <h5 class="mb-0 text-danger text-uppercase font-weight-bold">Occupancy: <span>{{ shop.occupancy }}</span></spa></h5>
-                                <p class="text-danger mb-0">The shop is crowded and is not advice to visit right now!</p>
-                            </div>
-    
-                            <div class="shop-services-section w-100">
-                                <h6 class="mb-1 text-uppercase"><span class="font-weight-bold">Services - </span>Click to shop</h6> 
-                                <div class="shop-services d-flex align-items-center justify-content-left">
-                                {% if shop.pickup %}
+        
+                                <div class="occupancy mb-2">
+                                    <h5 class="mb-0 text-danger text-uppercase font-weight-bold">Occupancy: <span>{{ shop.occupancy }}</span></spa></h5>
+                                    <p class="text-danger mb-0">The shop is crowded and is not advice to visit right now!</p>
+                                </div>
+        
+                                <div class="shop-services-section w-100">
+                                    <h6 class="mb-1 text-uppercase font-weight-bold">Services</h6> 
+                                    <div class="shop-services d-flex align-items-center justify-content-left">
+                                    {% if shop.pickup %}
+                                        <div class="shop-service d-flex align-items-center">
+                                            <div href="#" class="service-icon bg-primary mr-2">
+                                                <i class="fas fa-store fa-lg text-white"></i>
+                                            </div> 
+                                            <p class="mb-0 mr-3 text-secondary">Pick Up</p>
+                                        </div>
+                                    {% endif %}
+                                    {% if shop.homeDelivery %}
                                     <div class="shop-service d-flex align-items-center">
-                                        <a href="#" class="btn btn-link text-decoration-none service-icon bg-primary mr-2">
-                                            <i class="fas fa-store fa-lg text-white"></i>
-                                        </a> 
-                                        <p class="mb-0 mr-3 text-secondary">Pick Up</p>
+                                        <div href="#" class="service-icon bg-warning mr-2">
+                                            <i class="fas fa-home fa-lg text-white"></i>
+                                        </div> 
+                                        <p class="mb-0 mr-3 text-secondary">Home Delivery</p>
                                     </div>
-                                {% endif %}
-                                {% if shop.homeDelivery %}
-                                <div class="shop-service d-flex align-items-center">
-                                    <a href="#" class="btn btn-link text-decoration-none service-icon bg-warning mr-2">
-                                        <i class="fas fa-home fa-lg text-white"></i>
-                                    </a> 
-                                    <p class="mb-0 mr-3 text-secondary">Home Delivery</p>
+                                    {% endif %}
+                                    {% if not shop.homeDelivery and not shop.pickup %}
+                                        <p class="mb-0 text-secondary">Not services available</p>
+                                    {% endif %}
+                                    </div>
                                 </div>
-                                {% endif %}
-                                {% if not shop.homeDelivery and not shop.pickup %}
-                                    <p class="mb-0 text-secondary">Not services available</p>
-                                {% endif %}
-                                </div>
+                            </div>
+                            <div class="">
+                                <a href="/shop/{{category}}/{{shop.id}}" class="btn btn-link text-decoration-none"><i class="fa fa-arrow-right fa-3x text-danger"></i></a>
                             </div>
                         </div>
                     </li>
