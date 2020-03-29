@@ -42,8 +42,8 @@ class AboutPageView(TemplateView):
         print("POST ROUTE CALLED!")
         print(request.POST["radius"])
         print(self)
-        matchData(request)
-        return render(request, 'shops/browse.html', context=None)
+        data = matchData(request)
+        return render(request, 'shops/browse.html', {'list' : data}) 
         
 
 def matchData(request):
