@@ -12,3 +12,104 @@ query_result = google_places.nearby_search(
         lat_lng={'lat': 25.3510963, 'lng': 55.3922685}, 
         radius=1000,
         types=[types.TYPE_GROCERY_OR_SUPERMARKET])
+
+
+        20
+*****
+========================
+{'id': '8350f89d13bee35222e284eb2b50bed7f7c46ada', 'location': "{'lat': Decimal(': 'Al Douri Mart Supermarket And Roastery', 'vicinity': 'Al Qasimiyah - King Abill': '08:00', 'occupancy': 15, 'pickup': False, 'homeDelivery': True, 'type': '
+========================
+{'id': '6a22f0f3bfb80a1c1124b49270b8c7f3d15f7a42', 'location': "{'lat': Decimal(, 'name': 'Giant Supermarket', 'vicinity': 'Rolla Al Arouba Street - Sharjah', ' 'homeDelivery': False, 'type': 'SUPERMARKET'}
+========================
+{'id': 'b1e87534045e0b88acd7347dd89514f58b20f94c', 'location': "{'lat': Decimal(': 'Istanbul Supermarket, Al Qasimia', 'vicinity': '25 Ammar Bin Yasir Street - kup': True, 'homeDelivery': False, 'type': 'SUPERMARKET'}
+========================
+{'id': 'ddda4af82415efd462f7d9d0799a777b47c8eedb', 'location': "{'lat': Decimal( 'name': 'Megamart', 'vicinity': 'Near Mc Donalds، Al Habtoor Tower - King Faisakup': False, 'homeDelivery': True, 'type': 'SUPERMARKET'}
+========================
+{'id': '36431f65b18834a28fa55c04b28c6e7ac849d302', 'location': "{'lat': Decimal(, 'name': 'Backet Supermarket - Rolla', 'vicinity': 'Sharjah', 'openTill': '00:0: False, 'type': 'SUPERMARKET'}
+========================
+{'id': '06efd6f57a04c10f2b043401e450cfe66ca3cc8b', 'location': "{'lat': Decimal(': 'Al Wafa Center ( Nesto)', 'vicinity': 'Al Yarmook', 'openTill': '10:00', 'oc, 'type': 'SUPERMARKET'}
+========================
+{'id': '990a1b546fc4f9851029177a9e5255ea9802f261', 'location': "{'lat': Decimal(: 'Choithrams', 'vicinity': 'King Faisal Street', 'openTill': '11:00', 'occupanc': 'SUPERMARKET'}
+========================
+{'id': '06f4fdaff9fd4a6a5e692a4ebf366f444e0b2e05', 'location': "{'lat': Decimal(, 'name': 'Madhoor Stores', 'vicinity': 'Sharjah', 'openTill': '09:00', 'occupane': 'SUPERMARKET'}
+========================
+{'id': 'fb73d7ea75cf8b3fefda51056f9b505c1e107fba', 'location': "{'lat': Decimal(': 'Istanbul Supermarket', 'vicinity': 'Al Wahda Street', 'openTill': '01:00', 'e, 'type': 'SUPERMARKET'}
+========================
+{'id': '3b5c063b0b91c0422ff8850232ca38d0e20cd6b5', 'location': "{'lat': Decimal(': 'Darb Al Madhina Supermarket', 'vicinity': 'Sharjah', 'openTill': '09:00', 'o, 'type': 'SUPERMARKET'}
+
+obj={}
+for grocery in groceries:
+        obj.id = grocery.id
+        obj.fruits = [
+                for fruit in fruits:
+                        obj.add(fruit)
+                        fruit.append(qty)
+
+        ]
+        obj.bakery=[
+
+        ]
+
+
+
+
+
+
+
+
+
+
+
+grocery- 
+
+grocery_id : "wjqdgjwehfkfbrfb"
+items: [ 
+        categories: [
+        {"fruits": [
+               ["Tomato", 5, 1.2, "kgs, ""]
+               ["Potato", 10, 2.4, "kgs", "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/hbf/h90/9158772621342/1552234_main.jpg_480Wx480H"] 
+               
+        ]
+        },
+        {"toileteries" : [
+                ["Dettol", 20, 10, "nos"]
+                ["Harpic", 30, 9, "nos"]
+                ["Lifebuoy", 25, 5, "nos"]
+                ["Lux", 40, 3, "nos"]
+                ["Harpic", 30, 9, "nos"]
+                ["Sanitizer", 25, 5, "nos"]
+                ["Tissue", 40, 3, "nos"]
+                ["Toilet Paper", 30, 9, "nos"]
+
+        ]
+        },
+        {"dairy":[
+
+
+        
+
+
+        ]       
+        }]] 
+
+        
+
+
+perishable non-perishable 
+
+pharmacy-
+
+pharmacy_id : "kqygdjhbbgefkubwkjn"
+items: [ ["Panadol", 50, 5, "nos",""],
+         ["Cough Syrup": 30, 10, "nos", ""],
+         ["Maxiclear": 40, 10, "nos", ""],
+         ["Nasal Spray": 40, 10, "nos", ""],
+         ["Vitamin C": 40, 10, "nos", ""],
+         ["Band-aid": 40, 10, "nos", ""],
+         ["Analgesic": 40, 10, "nos", ""],
+         ["Antiseptic Cream": 40, 10, "nos", ""],
+         ["Chloroquin": 40, 10, "nos", ""],
+         ["Azithromicin": 40, 10, "nos", ""],
+         ["Sanitizer": 40, 10, "nos", ""]
+]
+

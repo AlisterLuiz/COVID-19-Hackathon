@@ -1,0 +1,55 @@
+{% load static %}<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <!-- Bootstrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha256-oKpAiD7qu3bXrWRVxnXLV1h7FlNV+p5YJBIr8LOCFYw=" crossorigin="anonymous"></script>
+
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+      body {
+          font-family: 'Montserrat', sans-serif;
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+    {% block stylesheet %}{% endblock %}
+  </head>
+  <body class="my-3">
+    <header class="container">
+      <ul class="nav justify-content-between align-items-center font-weight-bold text-uppercase">
+        <li class="nav-item">
+          <a class="nav-link active text-success" href="/">
+            <i class="fab fa-pagelines fa-3x"></i>
+            <span class="h2 font-weight-bold">Essentials</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-success" href="/cart">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <span class="badge badge-success">4</span>
+          </a>
+        </li>
+      </ul>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer class="text-center container">
+      <h6>Crafted with <i class="fas fa-heart text-danger"></i> by <a href="mailto:ak125@hw.ac.uk">Aaish</a>, <a href="mailto:agl2@hw.ac.uk">Alister</a> and <a href="mailto:rmm8@hw.ac.uk">Rikesh</a></h6>
+      <h6>Stay Home, Stay Safe!</h6>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    {% block javascript %}{% endblock %}
+  </body>
+</html>
