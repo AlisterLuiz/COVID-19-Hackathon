@@ -7,6 +7,8 @@ from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
 import geocoder
 import json
+from django.conf import settings
+import os
 
 def noquote(s):
     return s
@@ -16,12 +18,13 @@ g = geocoder.ip('me')
 lat = g.latlng[0]
 lng = g.latlng[1]
 
+
 config = {
   "apiKey": "AIzaSyBk3hKgOO2SrqosNhsmipgEzi_tHQ921lE",
   "authDomain": "covid-19-85e6d.firebaseapp.com",
   "databaseURL": "https://covid-19-85e6d.firebaseio.com",
   "storageBucket": "covid-19-85e6d.appspot.com",
-  "serviceAccount": "D:/University/covid-19/COVID-19_Hackathon/Server/COVID19_Hackathon/essentials_app/covid.json"
+  "serviceAccount": os.path.join(settings.BASE_DIR, "essentials_app/covid.json")
 }
 
 firebase = pyrebase.initialize_app(config)
@@ -30,7 +33,7 @@ db = firebase.database()
 # Create your views here.
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'low.html', {'message':'this is a lol'})
+        return render(request, 'shops/browse.html', {'message':'this is a lol'})
 
 class AboutPageView(TemplateView):
     def get(self, request, **kwargs):

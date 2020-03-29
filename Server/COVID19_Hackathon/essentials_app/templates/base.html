@@ -1,0 +1,47 @@
+{% load static %}<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Default Title{% endblock %}</title>
+
+    <!-- Bootstrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha256-/ykJw/wDxMa0AQhHDYfuMEwVb4JHMx9h4jD4XvHqVzU=" crossorigin="anonymous" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha256-oKpAiD7qu3bXrWRVxnXLV1h7FlNV+p5YJBIr8LOCFYw=" crossorigin="anonymous"></script>
+
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
+    {% block stylesheet %}{% endblock %}
+  </head>
+  <body>
+    <header>
+      <ul class="nav justify-content-around font-weight-bold text-uppercase">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Store</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Profile</a>
+        </li>
+      </ul>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer>
+      ...
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    {% block javascript %}{% endblock %}
+  </body>
+</html>
