@@ -34,7 +34,7 @@ class HomePageView(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'index.html')
 
-class ShopPageView(TemplateView):
+class ShopPageCategory(TemplateView):
     def get(self, request, **kwargs):
         default_radius = 1000
         category = kwargs["category"]
@@ -44,6 +44,11 @@ class ShopPageView(TemplateView):
             'category' : category,
             'radius' : default_radius
         })
+
+class ShopPageView(TemplateView):
+    def get(self, request, **kwargs):
+
+        return render(request, 'shops/browse.html')
 
 class AboutPageView(TemplateView):
     def get(self, request, **kwargs):
