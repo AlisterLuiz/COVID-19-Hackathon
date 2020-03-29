@@ -1,0 +1,17 @@
+{
+    "pharmacy_id": "7f7a534b5be09cd07d2d8a90261d07f1cef09729",
+    "pharmacy_url": "https://www.google.com/maps/place/Life+Line+Pharmacy+LLC-SHJ/@25.3517729,55.3846672,17z/data=!3m1!4b1!4m5!3m4!1s0x3e5f5be5f8440177:0xba9e5ea7cc5c9286!8m2!3d25.3517729!4d55.3868559",
+    "items": [
+        ["Panadol", 50, 8.70, "nos", "https://i-cf3.gskstatic.com/content/dam/cf-consumer-healthcare/panadol/en_ie/ireland-products/panadol-extra/MGK5158-GSK-Panadol-Extra-455x455.png"],
+        ["Cough Syrup", 25, 10.40, "nos", "https://5.imimg.com/data5/PC/LF/VI/SELLER-90739745/torex-herbal-cough-syrup-500x500.jpg"],
+        ["Maxiclear", 40, 7.60, "nos", "https://d3fa68hw0m2vcc.cloudfront.net/07e/138312964.jpeg"],
+        ["Nasal Spray", 35, 7.50, "nos", "https://images-na.ssl-images-amazon.com/images/I/61BPAsA38HL.__AC_SY300_QL70_ML2_.jpg"],
+        ["Vitamin C", 30, 30.50, "nos", "https://phlnutrition.com/wp-content/uploads/2019/09/Vitamin-C.jpg"],
+        ["Band-aid", 45, 3.20, "nos", "https://images2.minutemediacdn.com/image/upload/c_crop,h_843,w_1500,x_0,y_78/f_auto,q_auto,w_1100/v1555006202/shape/mentalfloss/istock-151541239.jpg"],
+        ["Analgesic", 38, 54.20, "nos", "https://www.verywellhealth.com/thmb/HJKM94Oh9FyBGio99iivGvt9aDc=/2000x1500/smart/filters:no_upscale()/84373371-56aae76b5f9b58b7d0091493.jpg"],
+        ["Antiseptic Cream", 40, 43.20, "nos", "https://cdn.shopify.com/s/files/1/0015/6516/3629/products/DERMOPLEX_ANTISEPTIC_500x500.jpg?v=1563808604"],
+        ["Chloroquin", 23, 65.60, "nos", "http://www.thailandmedical.news/uploads/editor/files/Coronavirus-Drug-Research.jpg"],
+        ["Azithromicin", 35, 55.25, "nos", "https://res.cloudinary.com/zava-www-uk/image/upload/fl_progressive/a_exif,f_auto,e_sharpen:100,c_fit,w_920,h_690,q_70/v1519031229/uk/services-setup/travel-health-unit/travellers-diarrhoea-unit/azithromycin/nqe2tbooxjintxnolegf.jpg"],
+        ["Hand Sanitizer", 40, 3.25, "nos", "https://media-services.digital-rb.com/s3/live-productcatalogue/sys-master/images/hd9/h6f/8848606035998/latest%20ad.jpg"]
+    ]
+}
