@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block stylesheet %}
+<style>
+    .shop-category {
+        position: relative;
+    }
+
+    .shop-category::before {
+        opacity: 0.5;
+        font-size: 12em;
+        color: white;
+        position: absolute;
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 900;
+        right: 0;
+    }
+
+    .pharmacy::before {
+        content: "\f484";
+    }
+
+    .grocery::before {
+        content: "\f54e";
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Container starts -->
+<div class="">
+    <!-- Home section starts -->
+    <div class="home-section">
+        <!-- Shop categories start -->
+        <div class="shop-categories d-flex flex-column p-3">
+            <!-- Shop category starts -->
+            <div class="shop-category pharmacy bg-danger w-100 mb-3 px-3 py-5 rounded">
+                <h3 class="text-uppercase text-white font-weight-bold"><span>Pharmacies &amp; Medical Stores</span></h3>
+                <p class="text-light">Find <span>Pharmacies &amp; Medical Stores</span> near you</p>
+                <a href=""><i class="fa fa-arrow-right fa-3x text-white"></i></a>
+            </div>
+            <!-- Shop category ends -->
+            <!-- Shop category starts -->
+            <div class="shop-category grocery bg-primary w-100 mb-3 px-3 py-5 rounded">
+                <h3 class="text-uppercase text-white font-weight-bold"><span>Supermarkets &amp; Convenience store</span></h3>
+                <p class="text-light">Find <span>Supermarkets &amp; Convenience store</span> near you</p>
+                <a href=""><i class="fa fa-arrow-right fa-3x text-white"></i></a>
+            </div>
+            <!-- Shop category ends -->
+        </div>
+        <!-- Shop categories ends -->
+    </div>
+    <!-- Home section ends -->
+</div>
+<!-- Container ends -->
+{% endblock %}
