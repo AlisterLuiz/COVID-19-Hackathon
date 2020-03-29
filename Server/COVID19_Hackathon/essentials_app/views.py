@@ -33,7 +33,18 @@ db = firebase.database()
 # Create your views here.
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'shops/browse.html', {'message':'this is a lol'})
+        return render(request, 'index.html')
+
+class ShopPageView(TemplateView):
+    def get(self, request, **kwargs):
+        default_radius = 1000
+        category = kwargs["category"]
+        data = matchData(default_radius, category)
+        return render(request, 'shops/browse.html', {
+            'shops' : data,
+            'category' : category,
+            'radius' : default_radius
+        })
 
 class AboutPageView(TemplateView):
     def get(self, request, **kwargs):
@@ -44,21 +55,25 @@ class AboutPageView(TemplateView):
         print("POST ROUTE CALLED!")
         print(request.POST["radius"])
         print(self)
-        data = matchData(request)
-        return render(request, 'shops/browse.html', {'list' : data}) 
+        data = matchData(request.POST["radius"], request.POST["type"])
+        return render(request, 'shops/browse.html', {
+            'shops' : data,
+            'category' : request.POST["type"],
+            'radius' : request.POST["radius"]
+        }) 
         
 
-def matchData(request):
+def matchData(radius, category):
     google_places = GooglePlaces("AIzaSyDb5kEEULH5xs30Beq-dsKnQqbsdjX6AKI")
 
-    if (request.POST["type"] == "SUPERMARKET"):
+    if (category.upper() == "SUPERMARKET"):
         t = [types.TYPE_GROCERY_OR_SUPERMARKET]
     else:
         t = [types.TYPE_PHARMACY]
 
     query_result = google_places.nearby_search(
             lat_lng = {'lat': lat, 'lng': lng}, 
-            radius = int(request.POST["radius"]),
+            radius = int(radius),
             types = t ) 
 
     checkResult = query_result.raw_response["results"]
@@ -69,7 +84,7 @@ def matchData(request):
 
     dt = dict(db_results)
     lt = list(dt.values())
-    result = filter(lambda x: x["type"] == request.POST["type"], lt) 
+    result = filter(lambda x: x["type"] == category.upper(), lt) 
     result = list(result)
 
     newList = []
@@ -134,6 +149,6 @@ def insertData(request):
         print(place)
         db.child("entities").push(place)
 
-    return true 
+    return True 
    
         

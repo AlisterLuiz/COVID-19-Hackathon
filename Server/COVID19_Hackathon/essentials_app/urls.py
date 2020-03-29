@@ -15,6 +15,7 @@ router = routers.DefaultRouter()
 # ]
 
 urlpatterns = [
+    path('shop/<str:category>/', views.ShopPageView.as_view()),
     url(r'^$', views.HomePageView.as_view()),
     url(r'^about/$', views.AboutPageView.as_view()), # Add this /about/ route
 ]

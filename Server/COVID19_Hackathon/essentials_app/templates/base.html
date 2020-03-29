@@ -12,23 +12,28 @@
     <!-- Fontawesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+      body {
+          font-family: 'Montserrat', sans-serif;
+      }
+    </style>
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/app.css' %}">
     {% block stylesheet %}{% endblock %}
   </head>
-  <body>
+  <body class="my-3">
     <header>
-      <ul class="nav justify-content-around font-weight-bold text-uppercase">
+      <ul class="nav justify-content-between font-weight-bold text-uppercase">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link active h2 font-weight-bold text-success" href="/">Essentials</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Store</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Cart</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
+          <a class="nav-link text-success" href="/cart">
+            <i class="fas fa-shopping-cart fa-2x"></i>
+            <span class="badge badge-success">4</span>
+          </a>
         </li>
       </ul>
     </header>
@@ -36,8 +41,8 @@
       {% block content %}
       {% endblock %}
     </main>
-    <footer>
-      ...
+    <footer class="text-center">
+      <h6>Crafted with <i class="fas fa-heart text-danger"></i> by <a href="mailto:ak125@hw.ac.uk">Aaish</a>, <a href="mailto:agl2@hw.ac.uk">Alister</a> and <a href="mailto:rmm8@hw.ac.uk">Rikesh</a></h6>
     </footer>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script src="{% static 'js/app.js' %}"></script>

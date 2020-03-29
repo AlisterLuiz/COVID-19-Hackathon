@@ -10,13 +10,21 @@
 
     .header-section::before {
         opacity: 0.5;
-        font-size: 12em;
+        font-size: 15em;
         color: white;
         position: absolute;
         font-family: 'Font Awesome\ 5 Free';
         font-weight: 900;
-        content: "\f484";
         right: 0;
+        bottom: -75px;
+    }
+
+    .pharmacy::before {
+        content: "\f484";
+    }
+
+    .grocery::before {
+        content: "\f54e";
     }
 
     .shop-services > .shop-service > .service-icon{
@@ -37,119 +45,98 @@
     <!-- Browse shop section starts -->
     <div class="browse-shop-section">
         <!-- Header section starts -->
-        <div class="header-section bg-danger p-5 mb-3">
+        <div class="header-section {% if category == 'pharmacy' %} bg-danger pharmacy {% endif %} {% if category == 'supermarket' %} bg-primary grocery {% endif %} p-5 mb-3">
             <!-- Header information starts -->
             <div class="header-information d-flex align-items-center justify-content-between mb-3">
                 <div class="header-text">
-                    <h3 class="mb-0 text-uppercase text-white font-weight-bold"><span>Pharmacies &amp; Medical Stores</span></h3>
-                    <p class="mb-0 text-light">Find <span>Pharmacies &amp; Mediacal Stores</span> near you</p>
+                    {% if category == "pharmacy" %}
+                    <h3 class="mb-0 text-uppercase text-white font-weight-bold">Pharmacies &amp; Medical Stores</h3>
+                    <p class="mb-0 text-light">Find Pharmacies &amp; Mediacal Stores near you</p>
+                    {% endif %}
+                    {% if category == "supermarket" %}
+                    <h3 class="mb-0 text-uppercase text-white font-weight-bold">Supermarkets &amp; Convenience store</h3>
+                    <p class="mb-0 text-light">Find Supermarkets &amp; Convenience store near you</p>
+                    {% endif %}
                 </div>
             </div>
             <!-- Header information ends -->
             <!-- Search section starts -->
             <div class="search-section d-flex align-items-center justify-content-between">
+                <form action="/about/" method="post">
+                {% csrf_token %}
                 <div class="form-group w-100">
                     <label for="search-radius" class="h5 text-white">Search In Distance</label>
-                    <div class="d-flex align-items-center">
-                        <form action="/about/" method="post">
-                            {% csrf_token %}
-                            <input type="number" class="form-control mr-3 border-0" id="search-radius" aria-describedby="searchRadius" placeholder="Search Radius" name="radius">
-                            <input type = "hidden" name= "type" value="SUPERMARKET">
-                            <button class="btn btn-block btn-primary border-0" type="submit">Search Shops</button>
-                        </form>
-                    </div>
+                    <input type="number" class="form-control mb-2 border-0" id="search-radius" aria-describedby="searchRadius" placeholder="Search Radius" name="radius" value="{{ radius }}" min=500 max=5000 step=100 required>
+                    <input type = "hidden" name= "type" value="{{ category }}">
+                    <button class="btn btn-block {% if category == 'pharmacy' %} btn-primary {% endif %} {% if category == 'supermarket' %} btn-danger {% endif %} border-0" type="submit">Search Shops</button>
                     <small id="search-radius-help" class="form-text text-light">Select the distance you would like to search.</small>
                 </div>
+                </form>
             </div>
             <!-- Search section ends -->
         </div>
         <!-- Header section ends -->
         <!-- Shop section starts -->
         <div class="shop-section container">
-            <h3 class="mb-0 text-dark font-weight-bold text-capitalize">Pharmacies &amp; Medical Stores Near You</h3>
+            {% if category == "pharmacy" %}
+            <h3 class="mb-0 text-capitalize text-dark font-weight-bold">Pharmacies &amp; Medical Stores</h3>
+            {% endif %}
+            {% if category == "supermarket" %}
+            <h3 class="mb-0 text-capitalize text-dark font-weight-bold">Supermarkets &amp; Convenience store Near You</h3>
+            {% endif %}
             <h5 class="mb-0"><span class="font-weight-bold">Location: </span>Um Al Tarafa</h5>
-            <h5 class="mb-0"><span class="font-weight-bold">Distance: </span>5 KM</h5>
+            <h5 class="mb-0"><span class="font-weight-bold">Distance: </span>{{ radius }} Meters</h5>
             <p class="mb-3 text-secondary">Click on a service you would like to use</p>
             <!-- List shop cards starts -->
             <ul class="list-group list-group-flush list-shop-cards">
-                <!-- List shop card starts -->
-                <li class="list-group-item list-shop-card bg-light  p-3 rounded shadow mb-3">
-                    <div class="shop-card">
-                        <div class="store-information mb-2">
-                            <div class="store-name d-flex align-items-top justify-content-between">
-                                <h4 class="mb-0 text-dark text-uppercase font-weight-bold">Pharmacy Name Goes Here</h4>
-                                <h6 class="mb-0 text-success">Last updated: <span>1 min</span> ago</h6>
+                {% for shop in shops %}
+                    <!-- List shop card starts -->
+                    <li class="list-group-item list-shop-card bg-light  p-3 rounded shadow mb-3">
+                        <div class="shop-card">
+                            <div class="store-information mb-2">
+                                <div class="store-name d-flex align-items-top justify-content-between">
+                                    <h4 class="mb-0 mr-3 text-dark text-uppercase font-weight-bold">{{ shop.name }}</h4>
+                                    <h6 class="mb-0 text-success">Last updated: <span>1 min</span> ago</h6>
+                                </div>
+                                <p class="mb-0 text-secondary">{{ shop.vicinity }}</p>
+                                <h6 class="mb-0 text-dark">2.5 Km Away</h6>
+                                <h6 class="mb-0 text-dark">Open Till: <span>{{ shop.openTill }}</span></h6>
+                                <h5 class="mb-0 text-success text-uppercase font-weight-bold">Open Now</h5>
                             </div>
-                            <p class="mb-0 text-secondary">Location Goes Here</p>
-                            <h6 class="mb-0 text-dark">2.5 Km Away</h6>
-                            <h6 class="mb-0 text-dark">Timing: <span>7 AM</span> to <span>12 AM</span></h6>
-                            <h5 class="mb-0 text-success text-uppercase font-weight-bold">Open Now</h5>
-                        </div>
-
-                        <div class="occupancy mb-2">
-                            <h5 class="mb-0 text-danger text-uppercase font-weight-bold">Occupancy: <span>10</span></spa></h5>
-                            <p class="text-danger mb-0">The shop is crowded and is not advice to visit right now!</p>
-                        </div>
-
-                        <div class="shop-services-section w-100">
-                            <h6 class="mb-1 text-uppercase"><span class="font-weight-bold">Services - </span>Click to shop</h6> 
-                            <div class="shop-services d-flex align-items-center justify-content-left">
-                            <div class="shop-service d-flex align-items-center">
-                                <a href="#" class="btn btn-link text-decoration-none service-icon bg-primary mr-2">
-                                    <i class="fas fa-store fa-lg text-white"></i>
-                                </a> 
-                                <p class="mb-0 mr-3 text-secondary">Pick Up</p>
+    
+                            <div class="occupancy mb-2">
+                                <h5 class="mb-0 text-danger text-uppercase font-weight-bold">Occupancy: <span>{{ shop.occupancy }}</span></spa></h5>
+                                <p class="text-danger mb-0">The shop is crowded and is not advice to visit right now!</p>
                             </div>
-                            <div class="shop-service d-flex align-items-center">
-                                <a href="#" class="btn btn-link text-decoration-none service-icon bg-warning mr-2">
-                                    <i class="fas fa-home fa-lg text-white"></i>
-                                </a> 
-                                <p class="mb-0 mr-3 text-secondary">Home Delivery</p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <!-- List shop card starts -->
-                <!-- List shop card starts -->
-                <li class="list-group-item list-shop-card bg-light  p-3 rounded shadow">
-                    <div class="shop-card">
-                        <div class="store-information mb-2">
-                            <div class="store-name d-flex align-items-top justify-content-between">
-                                <h4 class="mb-0 text-dark text-uppercase font-weight-bold">Pharmacy Name Goes Here</h4>
-                                <h6 class="mb-0 text-success">Last updated: <span>1 min</span> ago</h6>
-                            </div>
-                            <p class="mb-0 text-secondary">Location Goes Here</p>
-                            <h6 class="mb-0 text-dark">2.5 Km Away</h6>
-                            <h6 class="mb-0 text-dark">Timing: <span>7 AM</span> to <span>12 AM</span></h6>
-                            <h5 class="mb-0 text-success text-uppercase font-weight-bold">Open Now</h5>
-                        </div>
-
-                        <div class="occupancy mb-2">
-                            <h5 class="mb-0 text-danger text-uppercase font-weight-bold">Occupancy: <span>10</span></spa></h5>
-                            <p class="text-danger mb-0">The shop is crowded and is not advice to visit right now!</p>
-                        </div>
-
-                        <div class="shop-services-section w-100">
-                            <h6 class="mb-1 text-uppercase"><span class="font-weight-bold">Services - </span>Click to shop</h6> 
-                            <div class="shop-services d-flex align-items-center justify-content-left">
-                            <div class="shop-service d-flex align-items-center">
-                                <a href="#" class="btn btn-link text-decoration-none service-icon bg-primary mr-2">
-                                    <i class="fas fa-store fa-lg text-white"></i>
-                                </a> 
-                                <p class="mb-0 mr-3 text-secondary">Pick Up</p>
-                            </div>
-                            <div class="shop-service d-flex align-items-center">
-                                <a href="#" class="btn btn-link text-decoration-none service-icon bg-warning mr-2">
-                                    <i class="fas fa-home fa-lg text-white"></i>
-                                </a> 
-                                <p class="mb-0 mr-3 text-secondary">Home Delivery</p>
-                            </div>
+    
+                            <div class="shop-services-section w-100">
+                                <h6 class="mb-1 text-uppercase"><span class="font-weight-bold">Services - </span>Click to shop</h6> 
+                                <div class="shop-services d-flex align-items-center justify-content-left">
+                                {% if shop.pickup %}
+                                    <div class="shop-service d-flex align-items-center">
+                                        <a href="#" class="btn btn-link text-decoration-none service-icon bg-primary mr-2">
+                                            <i class="fas fa-store fa-lg text-white"></i>
+                                        </a> 
+                                        <p class="mb-0 mr-3 text-secondary">Pick Up</p>
+                                    </div>
+                                {% endif %}
+                                {% if shop.homeDelivery %}
+                                <div class="shop-service d-flex align-items-center">
+                                    <a href="#" class="btn btn-link text-decoration-none service-icon bg-warning mr-2">
+                                        <i class="fas fa-home fa-lg text-white"></i>
+                                    </a> 
+                                    <p class="mb-0 mr-3 text-secondary">Home Delivery</p>
+                                </div>
+                                {% endif %}
+                                {% if not shop.homeDelivery and not shop.pickup %}
+                                    <p class="mb-0 text-secondary">Not services available</p>
+                                {% endif %}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </li>
-                <!-- List shop card starts -->
+                    </li>
+                    <!-- List shop card ends -->
+                {% endfor %}
             </ul>
             <!-- List shop cards ends -->
         </div>
