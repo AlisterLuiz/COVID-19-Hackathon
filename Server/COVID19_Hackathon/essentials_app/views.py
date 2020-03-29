@@ -9,6 +9,8 @@ import geocoder
 import json
 from django.conf import settings
 import os
+from cart.cart import Cart
+# from myproducts.models import Product
 
 def noquote(s):
     return s
