@@ -18,7 +18,6 @@ g = geocoder.ip('me')
 lat = g.latlng[0]
 lng = g.latlng[1]
 
-
 config = {
   "apiKey": "AIzaSyBk3hKgOO2SrqosNhsmipgEzi_tHQ921lE",
   "authDomain": "covid-19-85e6d.firebaseapp.com",
@@ -37,13 +36,14 @@ class HomePageView(TemplateView):
 
 class AboutPageView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'hi.html', context=None)
+        return render(request, 'shops/browse.html', context=None)
+        
     def post(self, request, **kwargs):
         print("POST ROUTE CALLED!")
         print(request.POST["radius"])
         print(self)
         matchData(request)
-        return render(request, 'hi.html', context=None)
+        return render(request, 'shops/browse.html', context=None)
         
 
 def matchData(request):
@@ -60,7 +60,8 @@ def matchData(request):
             types = t ) 
 
     checkResult = query_result.raw_response["results"]
-    print("***************************************")
+    print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+    print(checkResult)
 
     db_results = db.child("entities").get().val()
 
@@ -78,13 +79,14 @@ def matchData(request):
 
     for r1 in result:
         for r2 in checkResult:
-            print(r1["id"] == r2["id"])
             if(r1["id"] == r2["id"]):
                 newList.append(r1)
                 break
     
     print("#######################")
     print(newList)
+
+    return newList
 
             
      
@@ -95,7 +97,7 @@ def insertData(request):
     google_places = GooglePlaces("AIzaSyDb5kEEULH5xs30Beq-dsKnQqbsdjX6AKI")
 
     query_result = google_places.nearby_search(
-            lat_lng={'lat': 25.3526878, 'lng': 55.3836953}, 
+            lat_lng={'lat': 25.3374, 'lng': 55.4121}, 
             radius=2000,
             types=[types.TYPE_GROCERY_OR_SUPERMARKET])
 
@@ -107,7 +109,7 @@ def insertData(request):
         x=x+1
         print(x)
         print("*****")
-        if x%1==0:
+        if x%2==0:
             obj = dict()
             obj["id"] = place["id"]
             obj["location"] = str(place["geometry"]["location"])
@@ -126,6 +128,6 @@ def insertData(request):
         print(place)
         db.child("entities").push(place)
 
-    return render(request, 'essentials_app/hi.html')    
+    return true 
    
         
