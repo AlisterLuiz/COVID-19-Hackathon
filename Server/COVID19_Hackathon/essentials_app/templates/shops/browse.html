@@ -51,8 +51,12 @@
                 <div class="form-group w-100">
                     <label for="search-radius" class="h5 text-white">Search In Distance</label>
                     <div class="d-flex align-items-center">
-                        <input type="number" class="form-control mr-3 border-0" id="search-radius" aria-describedby="searchRadius" placeholder="Search Radius" name="searchRadius">
-                        <button class="btn btn-block btn-primary border-0" type="submit">Search Shops</button>
+                        <form action="/about/" method="post">
+                            {% csrf_token %}
+                            <input type="number" class="form-control mr-3 border-0" id="search-radius" aria-describedby="searchRadius" placeholder="Search Radius" name="radius">
+                            <input type = "hidden" name= "type" value="SUPERMARKET">
+                            <button class="btn btn-block btn-primary border-0" type="submit">Search Shops</button>
+                        </form>
                     </div>
                     <small id="search-radius-help" class="form-text text-light">Select the distance you would like to search.</small>
                 </div>
