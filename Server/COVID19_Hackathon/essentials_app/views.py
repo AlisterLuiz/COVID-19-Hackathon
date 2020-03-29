@@ -18,6 +18,7 @@ g = geocoder.ip('me')
 lat = g.latlng[0]
 lng = g.latlng[1]
 
+
 config = {
   "apiKey": "AIzaSyBk3hKgOO2SrqosNhsmipgEzi_tHQ921lE",
   "authDomain": "covid-19-85e6d.firebaseapp.com",
@@ -39,6 +40,7 @@ class AboutPageView(TemplateView):
         return render(request, 'shops/browse.html', context=None)
         
     def post(self, request, **kwargs):
+        # x = insertData(request)
         print("POST ROUTE CALLED!")
         print(request.POST["radius"])
         print(self)
@@ -89,17 +91,17 @@ def matchData(request):
     return newList
 
             
-     
-
 
 def insertData(request):
 
     google_places = GooglePlaces("AIzaSyDb5kEEULH5xs30Beq-dsKnQqbsdjX6AKI")
 
     query_result = google_places.nearby_search(
-            lat_lng={'lat': 25.3374, 'lng': 55.4121}, 
-            radius=2000,
-            types=[types.TYPE_GROCERY_OR_SUPERMARKET])
+            lat_lng={'lat': 25.3526878, 'lng': 55.3836953}, 
+            radius=500,
+            # types=[types.TYPE_GROCERY_OR_SUPERMARKET])
+            types=[types.TYPE_PHARMACY])
+
 
     x=0
 
@@ -109,7 +111,7 @@ def insertData(request):
         x=x+1
         print(x)
         print("*****")
-        if x%2==0:
+        if x%1==0:
             obj = dict()
             obj["id"] = place["id"]
             obj["location"] = str(place["geometry"]["location"])
@@ -117,9 +119,13 @@ def insertData(request):
             obj["vicinity"] = place["vicinity"]
             obj["openTill"] = random.choice(["08:00", "09:00", "10:00", "11:00", "00:00", "01:00"])
             obj["occupancy"] = random.randint(3,15)
+            obj["placeID"] = place["place_id"]
+            obj["occupied"] = random.randint(obj["occupancy"]-4, obj["occupancy"])
             obj["pickup"] = random.choice([True, False])
             obj["homeDelivery"] = random.choice([True, False])
-            obj["type"] = "SUPERMARKET"
+            obj["type"] = "PHARMACY"
+            # obj["type"] = "GROCERY"
+
             places.append(obj)
             
 
