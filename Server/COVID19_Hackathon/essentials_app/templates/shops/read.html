@@ -69,14 +69,12 @@
                 <div class="shop-services-section mb-3 w-100">
                     <h6 class="mb-1 text-uppercase text-white font-weight-bold">Services</h6> 
                     <div class="shop-services d-flex align-items-center justify-content-left">
-                    {% if shop.pickup %}
                         <div class="shop-service d-flex align-items-center">
                             <div href="#" class="service-icon bg-primary mr-2">
                                 <i class="fas fa-store fa-lg text-white"></i>
                             </div> 
                             <p class="mb-0 mr-3 text-light">Pick Up</p>
                         </div>
-                    {% endif %}
                     {% if shop.homeDelivery %}
                     <div class="shop-service d-flex align-items-center">
                         <div href="#" class="service-icon bg-warning mr-2">
@@ -84,9 +82,6 @@
                         </div> 
                         <p class="mb-0 mr-3 text-light">Home Delivery</p>
                     </div>
-                    {% endif %}
-                    {% if not shop.homeDelivery and not shop.pickup %}
-                        <p class="mb-0 text-light">Not services available</p>
                     {% endif %}
                     </div>
                 </div>
@@ -126,7 +121,7 @@
                     <option>5</option>
                   </select>
                 </div>              
-                <a href="#" class="btn btn-block btn-danger">Add to Cart</a>
+                <a href="/cart" class="btn btn-block btn-danger">Add to Cart</a>
               </div>
             </div>
           </div>
