@@ -74,8 +74,8 @@ class ShopPageView(TemplateView):
         category = kwargs["category"]
         shopId = kwargs["shopId"]
         json_file = "grocery.json" if category.lower() == "supermarket" else "pharmacy.json"
-        name = "Creek Supermarket LLC" if category.lower() == "supermarket" else "Life Line Pharmacy LLC-SHJ"
-        vicinity = "Al Mina Road, Sharjah" if category.lower() == "supermarket" else "AL SOOR BUILDING, P.O.BOX:96234, IBRAHIM MOHAMMED AL MEDFA STREET - Al Mina Road - الشارقة"
+        name = "AL SAAH FLOUR MILL" if category.lower() == "supermarket" else "AL MARWAH PHARMACY LLC"
+        vicinity = "Al Mina Road, Sharjah" if category.lower() == "supermarket" else "Shop no. 1-2, Mister Baker building, Al Qasmia Street Opposite Home Box"
         print(json_file)
         data = read_json_file(json_file)
         print(type(data))
