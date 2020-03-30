@@ -64,6 +64,10 @@ class ShopPageCategory(TemplateView):
         })
 
 
+class AdminPageView(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'shops/admin.html')
+    
 class ShopPageView(TemplateView):
     def get(self, request, **kwargs):
         print(kwargs)
@@ -125,7 +129,10 @@ def matchData(radius, category):
     for r1 in result:
         for r2 in checkResult:
             if(r1["id"] == r2["id"]):
+                r1["available"] = r1["occupancy"] - r1["occupied"]
+                r1["distance"] = random.choice(["1.0", "0.5", "0.85", "2.0", "1.3", "1.74"])
                 newList.append(r1)
+
                 break
 
     print("#######################")
