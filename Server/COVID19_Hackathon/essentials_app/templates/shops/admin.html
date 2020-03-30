@@ -1,0 +1,447 @@
+{% extends '../base.html' %}
+
+{% block stylesheet %}
+<style>
+    .header-section,
+    .header-information,
+    .search-section {
+        position: relative;
+    }
+
+    .header-section::before {
+        opacity: 0.5;
+        font-size: 15em;
+        color: white;
+        position: absolute;
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 900;
+        right: 0;
+        bottom: -75px;
+    }
+
+    .number{
+
+        font-size: 15em;
+        color: white;
+        position: absolute;
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 1200;
+
+    }
+
+    .pharmacy::before {
+        content: "\f484";
+    }
+
+    .grocery::before {
+        content: "\f54e";
+    }
+
+    .shop-services > .shop-service > .service-icon{
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.25em;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="header-section bg-danger pharmacy  p-5 mb-3">
+    <!-- Header information starts -->
+    <div class="header-information d-flex align-items-center justify-content-between mb-3">
+        <div class="header-text">
+  
+            <h3 class="mb-0 text-uppercase text-white font-weight-bold">Life Line Pharmacy</h3>
+            <p class="mb-0 text-light">123, Sharjah, hfbkeb</p>
+        </div>
+    </div>
+    </div>
+<!-- Content Row -->
+<div class="container">
+<div class="row align-items-center">
+
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body bg-success text-white rounded">
+              <h5 class="card-title font-weight-bold">Current Occupancy </h5>
+              <h1 class="display-2 font-weight-bold">9</h1>
+              <a href="#" class="btn btn-outline-light">See Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body bg-primary text-white rounded">
+                <h5 class="card-title font-weight-bold">Pending Pickup Orders</h5>
+                <h1 class="display-2 font-weight-bold">7</h1>
+                <a href="#" class="btn btn-outline-light">See Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body bg-warning text-white rounded">
+                <h5 class="card-title font-weight-bold">Pending Deliveries</h5>
+                <h1 class="display-2 font-weight-bold">10</h1>
+                <a href="#" class="btn btn-outline-light">See Details</a>
+              </div>
+            </div>
+          </div>
+  </div>
+</div>
+
+
+<div class="container text-center mt-6">
+    <h2 class="mt-4 font-weight-bold">LIVE OCCUPANCY SENSOR</h2>
+    <img src="https://cdn.analyticsvidhya.com/wp-content/uploads/2018/06/pose.png" height="450px">
+</div>
+
+
+<div class="container text-center mt-6">
+<h2 class="mt-4 font-weight-bold"> REAL-TIME ANALYTICS</h2>
+<div class="row">
+    <div class="col-sm-6 mt-2">
+        <div id="chart-container-demand"></div>
+    </div>
+
+    <div class="col-sm-6">
+        <div id="chart-container"></div>
+    </div>
+
+</div>
+</div>
+  
+</div>
+    <script type="text/javascript">
+    
+	FusionCharts.ready(function(){
+	var chartObj = new FusionCharts({
+    type: 'scrollColumn2d',
+    renderAt: 'chart-container-demand',
+    width: '650',
+    height: '420',
+    dataFormat: 'json',
+    dataSource: {
+        "chart": {
+            "theme": "fusion",
+            "caption": "All Groceries Demand",
+            "subcaption": "March 30, 2020",
+            "xaxisname": "Item",
+            "yaxisname": "Quantity",
+            "showvalues": "1",
+            "numbersuffix": "",
+            "numVisiblePlot": "12",
+            "scrollheight": "10",
+            "flatScrollBars": "1",
+            "scrollShowButtons": "0",
+            "scrollColor": "#cccccc",
+            "showHoverEffect": "1"
+        },
+        "categories": [{
+            "category": [{
+                "label": "Carrot"
+            }, {
+                "label": "Potato"
+            }, {
+                "label": "Green Beans"
+            }, {
+                "label": "Broccoli"
+            }, {
+                "label": "Cauliflower"
+            }, {
+                "label": "Garlic"
+            }, {
+                "label": "Drumstick"
+            }, {
+                "label": "Eggplant"
+            }, {
+                "label": "Cucumber"
+            }, {
+                "label": "Papaya"
+            }, {
+                "label": "Mango"
+            }, {
+                "label": "Pear"
+            }, {
+                "label": "Orange"
+            }, {
+                "label": "Lime"
+            }, {
+                "label": "Toilet Paper"
+            }, {
+                "label": "Tissue"
+            }, {
+                "label": "Hand Sanitizer"
+            }, {
+                "label": "Lux"
+            }, {
+                "label": "Lifebuoy"
+            }, {
+                "label": "Harpic"
+            }, {
+                "label": "Dettol"
+            }, {
+                "label": "Hand Wash"
+            }]
+        }],
+        "dataset": [{
+            "data": [{
+                "value": "50"
+            }, {
+                "value": "52"
+            }, {
+                "value": "41"
+            }, {
+                "value": "30"
+            }, {
+                "value": "60"
+            }, {
+                "value": "70"
+            }, {
+                "value": "84"
+            }, {
+                "value": "12"
+            }, {
+                "value": "75"
+            }, {
+                "value": "33"
+            }, {
+                "value": "46"
+            }, {
+                "value": "20"
+            }, {
+                "value": "77"
+            }, {
+                "value": "65"
+            }, {
+                "value": "42"
+            }, {
+                "value": "38"
+            }, {
+                "value": "28"
+            }, {
+                "value": "90"
+            }, {
+                "value": "42"
+            }, {
+                "value": "34"
+            }, {
+                "value": "42"
+            }, {
+                "value": "30"
+            }]
+        }]
+    }
+});
+
+chartObj.render();
+    });
+    </script>  
+
+<script type="text/javascript">
+    FusionCharts.ready(function(){
+        var chartObj = new FusionCharts({
+type: 'scrollmsstackedcolumn2dlinedy',
+renderAt: 'chart-container',
+width: '650',
+height: '450',
+dataFormat: 'json',
+dataSource: {
+    chart: {
+        caption: "Daily Groceries DEMAND VS SUPPLY",
+        subcaption: "30th March, 2020",
+        pyaxisname: "Units in Demand",
+        syaxisname: "Sale %",
+        snumbersuffix: "%",
+        syaxismaxvalue: "25",
+        theme: "fusion",
+        showvalues: "0",
+        drawcrossline: "1",
+        divlinealpha: "20"
+    },
+    categories: [{
+            category: [{
+                label: "Carrot"
+            }, {
+                label: "Potato"
+            }, {
+                label: "Green Beans"
+            }, {
+                label: "Broccoli"
+            }, {
+                label: "Cauliflower"
+            }, {
+                label: "Garlic"
+            }, {
+                label: "Drumstick"
+            }, {
+                label: "Eggplant"
+            }, {
+                label: "Cucumber"
+            }, {
+                label: "Papaya"
+            }, {
+                label: "Mango"
+            }, {
+                label: "Pear"
+            }, {
+                label: "Orange"
+            }, {
+                label: "Lime"
+            }, {
+                label: "Toilet Paper"
+            }, {
+                label: "Tissue"
+            }, {
+                label: "Hand Sanitizer"
+            }, {
+                label: "Lux"
+            }, {
+                label: "Lifebuoy"
+            }, {
+                label: "Harpic"
+            }, {
+                label: "Dettol"
+            }, {
+                label: "Hand Wash"
+            }]
+        }],
+    dataset: [{
+            dataset: [{
+                seriesname: "Demand",
+                data: [{
+                value: "50"
+            }, {
+                value: "52"
+            }, {
+                value: "41"
+            }, {
+                value: "30"
+            }, {
+                value: "60"
+            }, {
+                value: "70"
+            }, {
+                value: "84"
+            }, {
+                value: "12"
+            }, {
+                value: "75"
+            }, {
+                value: "33"
+            }, {
+                value: "46"
+            }, {
+                value: "20"
+            }, {
+                value: "77"
+            }, {
+                value: "65"
+            }, {
+                value: "42"
+            }, {
+                value: "38"
+            }, {
+                value: "28"
+            }, {
+                value: "90"
+            }, {
+                value: "42"
+            }, {
+                value: "34"
+            }, {
+                value: "42"
+            }, {
+                value: "30"
+            }]
+        }
+            ]
+        },
+    ],
+    lineset: [{
+        seriesname: "Supply",
+        plottooltext: "Supply fulfilled $label is <b>$dataValue</b>",
+        showvalues: "0",
+        data: [{
+                value: "17.74"
+            },
+            {
+                value: "19.23"
+            },
+            {
+                value: "15.43"
+            },
+            {
+                value: "12.34"
+            },
+            {
+                value: "15.34"
+            },
+            {
+                value: "21.17"
+            },
+            {
+                value: "13.14"
+            },
+            {
+                value: "18.13"
+            },
+            {
+                value: "13.13"
+            },
+            {
+                value: "15.34"
+            },
+            {
+                value: "14.74"
+            },
+            {
+                value: "18.17"
+            },
+            {
+                value: "19.22"
+            },
+            {
+                value: "17.74"
+            },
+            {
+                value: "20.17"
+            }, 
+            {
+                value: "14.74"
+            },
+            {
+                value: "18.17"
+            },
+            {
+                value: "19.22"
+            },
+            {
+                value: "17.74"
+            },
+            {
+                value: "20.17"
+            },
+            {
+                value: "17.74"
+            },
+            {
+                value: "20.17"
+            },
+            {
+                value: "20.17"
+            }
+        ]
+    }]
+}
+}
+);
+        chartObj.render();
+    });
+</script>
+    
+    
+{% endblock %}
