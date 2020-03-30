@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block stylesheet %}
+<style>
+    .header-section {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header-section::before {
+        opacity: 0.5;
+        font-size: 15em;
+        color: white;
+        position: absolute;
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 900;
+        right: 0;
+        bottom: -125px;
+    }
+
+    .cart::before {
+        content: "\f07a";
+    }
+
+    .card-body {
+        flex: 0 0 auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Container starts -->
+<!-- Cart section starts -->
+<div class="cart-section">
+    <!-- Header section starts -->
+    <div class="header-section bg-success cart p-5 mb-3">
+        <!-- Header information starts -->
+        <div class="header-information py-3">
+            <div class="header-text">
+                <h3 class="mb-0 text-uppercase text-white font-weight-bold">Essential Cart</h3>
+                <p class="mb-0 text-light">Review your shopping cart &amp; checkout</p>
+            </div>
+        </div>
+        <!-- Header information ends -->
+    </div>
+    <!-- Header section ends -->
+    <!-- Cart listing starts -->
+    <div class="cart-listing d-flex justify-content-between container">
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="row">
+                {% for product in data %}
+                <div class="col-6 col-md-4 mb-3 d-flex">
+                    <div class="card flex-fill d-flex flex-column justify-content-between">
+                    <img src="{{ product.image }}" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-weight-bold text-uppercase mb-0">{{ product.name }}</h5>
+                        <h5>AED {{ product.price }} / {{ product.unit }}</h5>
+                        {% if product.1 > 20 %}
+                        <h5 class="text-success">In Stock</h5>
+                        {% endif %}
+                        {% if product.1 <= 20 %}
+                        <h5 class="mb-0 text-danger">Low On Stock</h5>
+                        <small class="text-danger">Please buy responsibly!</small>
+                        {% endif %}
+                        <label for="exampleFormControlSelect1" class="h5">Quantity: {{ product.quantity }}</label>           
+                        <label for="exampleFormControlSelect1" class="h5">Total Price: AED {{ product.totalPrice }}</label> 
+                        <a href="#" class="btn btn-block btn-primary">Update</a>
+                        <a href="#" class="btn btn-block btn-danger">Delete</a>
+                    </div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+            </div>    
+            <div class="col-12 col-md-4">
+                <div class="checkout bg-success p-5">
+                    <form method="post">
+                        <h4 class="font-weight-bold text-white">Checkout</h4>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="h5 text-white">Total Price: <span class="font-weight-bold">AED 200</span></label>
+                        </div>
+        
+                        <h5 class="font-weight-bold text-white">Enter Your Details</h5>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="h5 text-white">Full Name</label>
+                            <input type="text" class="border-0 form-control" id="exampleFormControlSelect1" value="Sabeel S">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="h5 text-white">Email</label>
+                            <input type="text" class="border-0 form-control" id="exampleFormControlSelect1" value="Sabeel@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="h5 text-white">Phone Number</label>
+                            <input type="text" class="border-0 form-control" id="exampleFormControlSelect1" value="(+971) 50 1234567">
+                        </div>
+                        <button type="submit" class="btn btn-block btn-light border-0">Checkout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Cart listing ends -->
+</div>
+<!-- Cart section ends -->
+<!-- Container ends -->
+{% endblock %}

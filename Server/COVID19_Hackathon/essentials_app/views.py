@@ -33,9 +33,16 @@ db = firebase.database()
 
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
-        json_file = "grocery.json"
         return render(request, 'index.html')
 
+class ShopCart(TemplateView):
+    def get(self, request, **kwargs):
+        json_file = "cart.json"
+        data = read_json_file(json_file)
+        print(type(data["items"]))
+        return render(request, 'cart.html', {
+            'data': data["items"],
+        })
 
 class ShopPageCategory(TemplateView):
     def get(self, request, **kwargs):
@@ -46,6 +53,14 @@ class ShopPageCategory(TemplateView):
             'shops': data,
             'category': category,
             'radius': default_radius
+        })
+    def post(self, request, **kwargs):
+        # x = insertData(request)
+        data = matchData(request.POST["radius"], request.POST["type"])
+        return render(request, 'shops/browse.html', {
+            'shops': data,
+            'category': request.POST["type"],
+            'radius': request.POST["radius"]
         })
 
 
@@ -74,18 +89,6 @@ class ShopPageView(TemplateView):
 class AboutPageView(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'shops/browse.html', context=None)
-
-    def post(self, request, **kwargs):
-        # x = insertData(request)
-        print("POST ROUTE CALLED!")
-        print(request.POST["radius"])
-        print(self)
-        data = matchData(request.POST["radius"], request.POST["type"])
-        return render(request, 'shops/browse.html', {
-            'shops': data,
-            'category': request.POST["type"],
-            'radius': request.POST["radius"]
-        })
 
 
 def matchData(radius, category):

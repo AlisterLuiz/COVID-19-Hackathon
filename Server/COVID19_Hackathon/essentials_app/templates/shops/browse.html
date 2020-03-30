@@ -62,10 +62,10 @@
             <!-- Header information ends -->
             <!-- Search section starts -->
             <div class="search-section d-flex align-items-center justify-content-between">
-                <form action="/about/" method="post">
+                <form action="/shop/{{ category }}/" method="post">
                 {% csrf_token %}
                 <div class="form-group w-100">
-                    <label for="search-radius" class="h5 text-white">Search In Distance</label>
+                    <label for="search-radius" class="h5 text-white">Search In Distance (Meters)</label>
                     <input type="number" class="form-control mb-2 border-0" id="search-radius" aria-describedby="searchRadius" placeholder="Search Radius" name="radius" value="{{ radius }}" min=500 max=5000 step=100 required>
                     <input type = "hidden" name= "type" value="{{ category }}">
                     <button class="btn btn-block {% if category == 'pharmacy' %} btn-primary {% endif %} {% if category == 'supermarket' %} btn-danger {% endif %} border-0" type="submit">Search Shops</button>
