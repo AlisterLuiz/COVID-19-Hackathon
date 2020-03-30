@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block stylesheet %}
+<style>
+  .header-section,
+  .header-information,
+  .search-section {
+      position: relative;
+  }
+
+  .header-section::before {
+      opacity: 0.5;
+      font-size: 15em;
+      color: white;
+      position: absolute;
+      font-family: 'Font Awesome\ 5 Free';
+      font-weight: 900;
+      right: 0;
+      bottom: -75px;
+  }
+
+  .pharmacy::before {
+      content: "\f484";
+  }
+
+  .grocery::before {
+      content: "\f54e";
+  }
+
+  .shop-services > .shop-service > .service-icon{
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25em;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+  <!-- Container starts -->
+  <div class="">
+    <!-- Read shop section starts -->
+      <div class="read-shop-section">
+        <!-- Header section starts -->
+        <div class="header-section {% if category == 'pharmacy' %} bg-danger pharmacy {% endif %} {% if category == 'supermarket' %} bg-primary grocery {% endif %} p-5 mb-3">
+          <!-- Header information starts -->
+          <div class="header-information">
+              <div class="header-text">
+                <div class="store-information mb-2">
+                  <h4 class="mb-0 mr-3 text-white text-uppercase font-weight-bold">AL MARWAH PHARMACY LLC</h4>
+                  <p class="mb-0 text-light">Shop no. 1-2, Mister Baker building, Al Qasmia Street Opposite Home Box</p>
+                  <h6 class="mb-0 text-dark">2.5 Km Away</h6>
+                  <h6 class="mb-0 text-dark">Open Till: <span>Open Till: 09:00</span></h6>
+                  <h5 class="mb-0 text-success text-uppercase font-weight-bold">Open Now</h5>
+                </div>
+
+                <div class="occupancy mb-2">
+                    <h5 class="mb-0 text-white text-uppercase font-weight-bold ">Occupancy: <span>9</span></spa></h5>
+                    <p class="text-white mb-0">The shop is crowded and is not advice to visit right now!</p>
+                </div>
+
+                <div class="shop-services-section mb-3 w-100">
+                    <h6 class="mb-1 text-uppercase text-white font-weight-bold">Services</h6> 
+                    <div class="shop-services d-flex align-items-center justify-content-left">
+                    {% if shop.pickup %}
+                        <div class="shop-service d-flex align-items-center">
+                            <div href="#" class="service-icon bg-primary mr-2">
+                                <i class="fas fa-store fa-lg text-white"></i>
+                            </div> 
+                            <p class="mb-0 mr-3 text-light">Pick Up</p>
+                        </div>
+                    {% endif %}
+                    {% if shop.homeDelivery %}
+                    <div class="shop-service d-flex align-items-center">
+                        <div href="#" class="service-icon bg-warning mr-2">
+                            <i class="fas fa-home fa-lg text-white"></i>
+                        </div> 
+                        <p class="mb-0 mr-3 text-light">Home Delivery</p>
+                    </div>
+                    {% endif %}
+                    {% if not shop.homeDelivery and not shop.pickup %}
+                        <p class="mb-0 text-light">Not services available</p>
+                    {% endif %}
+                    </div>
+                </div>
+
+                <div class="shop-service-option">
+                  <a href="" class="btn btn-light text-dark border-0 text-decoration-none"><i class="fas fa-directions fa-lg mr-2"></i>Get Directions</a>
+                </div>
+              </div>
+          </div>
+          <!-- Header information ends -->
+      </div>
+      <!-- Header section ends -->
+      <!-- Production listing section starts -->
+      <div class="product-listing-section container">
+        <div class="row">
+          <div class="col-6 col-md-4 mb-3">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body text-center">
+                <h5 class="card-title font-weight-bold text-uppercase mb-0">Prospan Syrup 100ml Bot</h5>
+                <h5>AED 30.00</h5>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1" class="h5">Quantity</label>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>              
+                <a href="#" class="btn btn-block btn-danger">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Production listing section ends -->
+
+      </div>
+    <!-- Read shop section ends -->
+  </div>
+  <!-- Container ends -->
+{% endblock %}

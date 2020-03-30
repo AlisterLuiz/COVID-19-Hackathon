@@ -48,8 +48,10 @@ class ShopPageCategory(TemplateView):
 
 class ShopPageView(TemplateView):
     def get(self, request, **kwargs):
-
-        return render(request, 'shops/browse.html')
+        category = kwargs["category"]
+        return render(request, 'shops/read.html', {
+            'category' : category,
+        })
 
 class AboutPageView(TemplateView):
     def get(self, request, **kwargs):

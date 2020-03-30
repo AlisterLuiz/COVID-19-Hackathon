@@ -47,7 +47,7 @@
         <!-- Header section starts -->
         <div class="header-section {% if category == 'pharmacy' %} bg-danger pharmacy {% endif %} {% if category == 'supermarket' %} bg-primary grocery {% endif %} p-5 mb-3">
             <!-- Header information starts -->
-            <div class="header-information d-flex align-items-center justify-content-between mb-3">
+            <div class="header-information mb-3">
                 <div class="header-text">
                     {% if category == "pharmacy" %}
                     <h3 class="mb-0 text-uppercase text-white font-weight-bold">Pharmacies &amp; Medical Stores</h3>
@@ -133,7 +133,7 @@
                                 </div>
                             </div>
                             <div class="">
-                                <a href="/shop/{{category}}/{{shop.id}}" class="btn btn-link text-decoration-none"><i class="fa fa-arrow-right fa-3x text-danger"></i></a>
+                                <a href="/shop/{{category}}/{{shop.id}}/" class="btn btn-link text-decoration-none"><i class="fa fa-arrow-right fa-3x text-danger"></i></a>
                             </div>
                         </div>
                     </li>
