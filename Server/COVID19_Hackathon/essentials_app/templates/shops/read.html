@@ -36,6 +36,10 @@
       justify-content: center;
       padding: 1.25em;
   }
+
+  .card-body {
+    flex: 0 0 auto;
+  }
 </style>
 {% endblock %}
 
@@ -50,15 +54,15 @@
           <div class="header-information">
               <div class="header-text">
                 <div class="store-information mb-2">
-                  <h4 class="mb-0 mr-3 text-white text-uppercase font-weight-bold">AL MARWAH PHARMACY LLC</h4>
-                  <p class="mb-0 text-light">Shop no. 1-2, Mister Baker building, Al Qasmia Street Opposite Home Box</p>
+                  <h4 class="mb-0 mr-3 text-white text-uppercase font-weight-bold">{{ name }}</h4>
+                  <p class="mb-0 text-light">{{ vicinity }}</p>
                   <h6 class="mb-0 text-dark">2.5 Km Away</h6>
                   <h6 class="mb-0 text-dark">Open Till: <span>Open Till: 09:00</span></h6>
                   <h5 class="mb-0 text-success text-uppercase font-weight-bold">Open Now</h5>
                 </div>
 
                 <div class="occupancy mb-2">
-                    <h5 class="mb-0 text-white text-uppercase font-weight-bold ">Occupancy: <span>9</span></spa></h5>
+                    <h5 class="mb-0 text-white text-uppercase font-weight-bold ">Occupancy: <span>{{ occupancy }}</span></spa></h5>
                     <p class="text-white mb-0">The shop is crowded and is not advice to visit right now!</p>
                 </div>
 
@@ -88,7 +92,7 @@
                 </div>
 
                 <div class="shop-service-option">
-                  <a href="" class="btn btn-light text-dark border-0 text-decoration-none"><i class="fas fa-directions fa-lg mr-2"></i>Get Directions</a>
+                  <a href="{{ map_link }}" target="_blank" class="btn btn-light text-dark border-0 text-decoration-none"><i class="fas fa-directions fa-lg mr-2"></i>Get Directions</a>
                 </div>
               </div>
           </div>
@@ -98,12 +102,20 @@
       <!-- Production listing section starts -->
       <div class="product-listing-section container">
         <div class="row">
-          <div class="col-6 col-md-4 mb-3">
-            <div class="card">
-              <img src="..." class="card-img-top" alt="...">
+          {% for product in data %}
+          <div class="col-6 col-md-4 mb-3 d-flex">
+            <div class="card flex-fill d-flex flex-column justify-content-between">
+              <img src="{{ product.4 }}" class="card-img-top" alt="...">
               <div class="card-body text-center">
-                <h5 class="card-title font-weight-bold text-uppercase mb-0">Prospan Syrup 100ml Bot</h5>
-                <h5>AED 30.00</h5>
+                <h5 class="card-title font-weight-bold text-uppercase mb-0">{{ product.0 }}</h5>
+                <h5>AED {{ product.2 }} / {{ product.3 }}</h5>
+                {% if product.1 > 20 %}
+                <h5 class="text-success">In Stock</h5>
+                {% endif %}
+                {% if product.1 <= 20 %}
+                <h5 class="mb-0 text-danger">Low On Stock</h5>
+                <small class="text-danger">Please buy responsibly!</small>
+                {% endif %}
                 <div class="form-group">
                   <label for="exampleFormControlSelect1" class="h5">Quantity</label>
                   <select class="form-control" id="exampleFormControlSelect1">
@@ -118,6 +130,7 @@
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
       </div>
       <!-- Production listing section ends -->

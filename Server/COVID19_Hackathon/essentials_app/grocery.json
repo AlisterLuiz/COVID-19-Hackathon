@@ -1,8 +1,7 @@
 {
     "grocery_id": "M3b19pT1PtCfAj2eba0",
-    "grocery_url": "https://www.google.com/maps/place/Creek+Supermarket+LLC/@25.3648145,55.3871308,16.5z/data=!4m8!1m2!2m1!1sCreek+Supermarket+LLC!3m4!1s0x3e5f5a3480fcb067:0x9300d3a0a462ea19!8m2!3d25.3529199!4d55.3860303",
-    "categories": [{
-            "vegetables": [
+    "url": "https://www.google.com/maps/place/Creek+Supermarket+LLC/@25.3648145,55.3871308,16.5z/data=!4m8!1m2!2m1!1sCreek+Supermarket+LLC!3m4!1s0x3e5f5a3480fcb067:0x9300d3a0a462ea19!8m2!3d25.3529199!4d55.3860303",
+    "items": [
                 [
                     "Carrot",
                     25,
@@ -74,13 +73,7 @@
                     "KG",
                     "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h09/h85/8949931802654/449729_main.jpg_480Wx480H"
 
-                ]
-
-            ]
-
-        },
-        {
-            "toiletries": [
+                ],
                 [
                     "Dettol",
                     20,
@@ -144,13 +137,7 @@
                     "nos",
                     "https://www.riteaid.com/shop/media/catalog/product/cache/4591aca1c45652017f30b507cfba66d5/0/0/00054000100604.jpg"
 
-                ]
-
-            ]
-
-        },
-        {
-            "fruits": [
+                ],
                 [
                     "Pappaya",
                     20,
@@ -191,10 +178,5 @@
                     "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h5a/h46/8949904769054/446440_main.jpg_480Wx480H"
 
                 ]
-
-            ]
-
-        }
-
     ]
 }

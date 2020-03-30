@@ -9,7 +9,7 @@ import geocoder
 import json
 from django.conf import settings
 import os
-from cart.cart import Cart
+# from cart.cart import Cart
 # from myproducts.models import Product
 
 g = geocoder.ip('me')
@@ -33,6 +33,7 @@ db = firebase.database()
 
 class HomePageView(TemplateView):
     def get(self, request, **kwargs):
+        json_file = "grocery.json"
         return render(request, 'index.html')
 
 
@@ -50,9 +51,23 @@ class ShopPageCategory(TemplateView):
 
 class ShopPageView(TemplateView):
     def get(self, request, **kwargs):
+        print(kwargs)
         category = kwargs["category"]
+        shopId = kwargs["shopId"]
+        json_file = "grocery.json" if category.lower() == "supermarket" else "pharmacy.json"
+        name = "Creek Supermarket LLC" if category.lower() == "supermarket" else "Life Line Pharmacy LLC-SHJ"
+        vicinity = "Al Mina Road, Sharjah" if category.lower() == "supermarket" else "AL SOOR BUILDING, P.O.BOX:96234, IBRAHIM MOHAMMED AL MEDFA STREET - Al Mina Road - الشارقة"
+        print(json_file)
+        data = read_json_file(json_file)
+        print(type(data))
         return render(request, 'shops/read.html', {
             'category' : category,
+            'shopId' : shopId,
+            'name' : name,
+            "vicinity" : vicinity,
+            "occupancy" : 9,
+            'data' : data["items"],
+            'map_link' : data["url"]
         })
 
 
@@ -157,3 +172,8 @@ def insertData(request):
         print(place)
         db.child("entities").push(place)
         return True
+
+def read_json_file(json_file):
+    json_data = open(os.path.join(settings.BASE_DIR, "essentials_app/", json_file))
+    json_data = json.load(json_data)
+    return json_data
