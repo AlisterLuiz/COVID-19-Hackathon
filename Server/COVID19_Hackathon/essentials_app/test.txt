@@ -11,7 +11,7 @@ type: Supermarket
 query_result = google_places.nearby_search(
         lat_lng={'lat': 25.3510963, 'lng': 55.3922685}, 
         radius=1000,
-        types=[types.TYPE_GROCERY_OR_SUPERMARKET])
+        types=[types.TYPE_GROCERY_OR_SUPERMARKET],)
 
 
         20
@@ -45,10 +45,10 @@ for grocery in groceries:
                         obj.add(fruit)
                         fruit.append(qty)
 
-        ]
+        ],
         obj.bakery=[
 
-        ]
+        ],
 
 
 
@@ -66,22 +66,22 @@ grocery_id : "wjqdgjwehfkfbrfb"
 items: [ 
         categories: [
         {"fruits": [
-               ["Tomato", 5, 1.2, "kgs, ""]
-               ["Potato", 10, 2.4, "kgs", "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/hbf/h90/9158772621342/1552234_main.jpg_480Wx480H"] 
+               ["Tomato", 5, 1.2, "kgs, ""],
+               ["Potato", 10, 2.4, "kgs", "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/hbf/h90/9158772621342/1552234_main.jpg_480Wx480H"], 
                
-        ]
+        ],
         },
         {"toileteries" : [
-                ["Dettol", 20, 10, "nos"]
-                ["Harpic", 30, 9, "nos"]
-                ["Lifebuoy", 25, 5, "nos"]
-                ["Lux", 40, 3, "nos"]
-                ["Harpic", 30, 9, "nos"]
-                ["Sanitizer", 25, 5, "nos"]
-                ["Tissue", 40, 3, "nos"]
-                ["Toilet Paper", 30, 9, "nos"]
+                ["Dettol", 20, 10, "nos"],
+                ["Harpic", 30, 9, "nos"],
+                ["Lifebuoy", 25, 5, "nos"],
+                ["Lux", 40, 3, "nos"],
+                ["Harpic", 30, 9, "nos"],
+                ["Sanitizer", 25, 5, "nos"],
+                ["Tissue", 40, 3, "nos"],
+                ["Toilet Paper", 30, 9, "nos"],
 
-        ]
+        ],
         },
         {"dairy":[
 
@@ -89,8 +89,8 @@ items: [
         
 
 
-        ]       
-        }]] 
+        ],       
+        }],], 
 
         
 
@@ -100,16 +100,217 @@ perishable non-perishable
 pharmacy-
 
 pharmacy_id : "kqygdjhbbgefkubwkjn"
-items: [ ["Panadol", 50, 5, "nos",""],
-         ["Cough Syrup": 30, 10, "nos", ""],
-         ["Maxiclear": 40, 10, "nos", ""],
-         ["Nasal Spray": 40, 10, "nos", ""],
-         ["Vitamin C": 40, 10, "nos", ""],
-         ["Band-aid": 40, 10, "nos", ""],
-         ["Analgesic": 40, 10, "nos", ""],
-         ["Antiseptic Cream": 40, 10, "nos", ""],
-         ["Chloroquin": 40, 10, "nos", ""],
-         ["Azithromicin": 40, 10, "nos", ""],
-         ["Sanitizer": 40, 10, "nos", ""]
-]
+items: [ ["Panadol", 50, 5, "nos",""],,
+         ["Cough Syrup": 30, 10, "nos", ""],,
+         ["Maxiclear": 40, 10, "nos", ""],,
+         ["Nasal Spray": 40, 10, "nos", ""],,
+         ["Vitamin C": 40, 10, "nos", ""],,
+         ["Band-aid": 40, 10, "nos", ""],,
+         ["Analgesic": 40, 10, "nos", ""],,
+         ["Antiseptic Cream": 40, 10, "nos", ""],,
+         ["Chloroquin": 40, 10, "nos", ""],,
+         ["Azithromicin": 40, 10, "nos", ""],,
+         ["Sanitizer": 40, 10, "nos", ""],
+],
 
+
+
+
+
+
+********************************************************************************************
+GROCERY
+{   "grocery_id":"M3b19pT1PtCfAj2eba0",
+   "grocery_url":"https://www.google.com/maps/place/Creek+Supermarket+LLC/@25.3648145,55.3871308,16.5z/data=!4m8!1m2!2m1!1sCreek+Supermarket+LLC!3m4!1s0x3e5f5a3480fcb067:0x9300d3a0a462ea19!8m2!3d25.3529199!4d55.3860303",
+   "categories":[      {         "vegetables":[            [
+               "Carrot",
+               25,
+               3.75,
+               "KG",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h71/he4/9533389766686/70968_main.jpg_480Wx480H"
+            
+],
+            [
+               "Potato",
+               15,
+               3.55,
+               "KG",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/hbf/h90/9158772621342/1552234_main.jpg_480Wx480H"
+            
+],
+            [
+               "Green Beans",
+               40,
+               6.30,
+               "KG",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/hce/h11/9929881911326/449353_main.jpg_480Wx480H"
+            
+],
+            [
+               "Broccoli",
+               10,
+               12.90,
+               "KG",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/hd7/h22/9929881419806/490041_main.jpg_480Wx480H"
+            
+],
+            [
+               "Cauliflower",
+               10,
+               7.80,
+               "KG",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h78/h1e/8949597274142/490043_main.jpg_480Wx480H"
+            
+],
+            [
+               "Garlic",
+               20,
+               14.20,
+               "KG",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/hb9/he6/8960478281758/1140970_main.jpg_480Wx480H"
+            
+],
+            [
+               "Drumstick",
+               18,
+               11.20,
+               "KG",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/hbc/ha2/8949375336478/457767_main.jpg_480Wx480H"
+            
+],
+            [
+               "Eggplant",
+               16,
+               6.80,
+               "KG",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h8a/hff/9057857142814/1552232_main.jpg_480Wx480H"
+            
+],
+            [
+               "Cucumber",
+               14,
+               4.60,
+               "KG",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h09/h85/8949931802654/449729_main.jpg_480Wx480H"
+            
+]
+         
+]
+      
+},
+      {         "toiletries":[            [
+               "Dettol",
+               20,
+               8.50,
+               "nos",
+               "https://media-services.digital-rb.com/s3/live-productcatalogue/sys-master/images/h06/h1f/8821863481374/Antiseptic%20Liquid.jpg?width=1280&height=1280"
+            
+],
+            [
+               "Harpic",
+               24,
+               9.20,
+               "nos",
+               "https://cdn.shopify.com/s/files/1/0095/2516/6161/products/61s5Bqd6A_L._SL1000_800x.jpg?v=1578568405"
+            
+],
+            [
+               "Lifebuoy",
+               19,
+               6.70,
+               "nos",
+               "https://k.nooncdn.com/t_desktop-pdp-v1/v1563526610/N13346161A_1.jpg"
+            
+],
+            [
+               "Lux",
+               30,
+               3.20,
+               "nos",
+               "https://images-na.ssl-images-amazon.com/images/I/61gSCLEqmQL._SL1000_.jpg"
+            
+],
+            [
+               "Hand Wash",
+               28,
+               5.50,
+               "nos",
+               "https://images-static.nykaa.com/media/catalog/product/tr:h-300,cm-pad_resize/5/f/5f541598901396323303_new.jpg"
+            
+],
+            [
+               "Hand Sanitizer",
+               25,
+               3.20,
+               "nos",
+               "https://media-services.digital-rb.com/s3/live-productcatalogue/sys-master/images/hd9/h6f/8848606035998/latest%20ad.jpg"
+            
+],
+            [
+               "Tissue",
+               30,
+               3.50,
+               "nos",
+               "https://www.bayzon.com/images/productimages/1557219496WhatsApp_Image_2019-05-07_at_11.36_.44_AM_.jpeg"
+            
+],
+            [
+               "Toilet Paper",
+               20,
+               5.10,
+               "nos",
+               "https://www.riteaid.com/shop/media/catalog/product/cache/4591aca1c45652017f30b507cfba66d5/0/0/00054000100604.jpg"
+            
+]
+         
+]
+      
+},
+      {         "fruits":[            [
+               "Pappaya",
+               20,
+               7.00,
+               "nos",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h9d/h3c/8950392586270/446974_main.jpg_480Wx480H"
+            
+],
+            [
+               "Mango",
+               24,
+               26.40,
+               "nos",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h31/heb/8951605559326/1077402_main.jpg_480Wx480H"
+            
+],
+            [
+               "Pear",
+               15,
+               12.95,
+               "nos",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h21/hd3/8948866187294/885810_main.jpg_480Wx480H"
+            
+],
+            [
+               "Orange",
+               10,
+               13.75,
+               "nos",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/hc3/hac/8947242041374/71069_main.jpg_480Wx480H"
+            
+],
+            [
+               "Lime",
+               20,
+               6.75,
+               "nos",
+               "https://cdnprod.mafretailproxy.com/cdn-cgi/image/format=auto,onerror=redirect/sys-master-prod/h5a/h46/8949904769054/446440_main.jpg_480Wx480H"
+            
+]
+         
+]
+      
+}
+   
+]
+}
+********************************************************************************************
