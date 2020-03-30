@@ -16,6 +16,7 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     path('shop/<str:category>/', views.ShopPageCategory.as_view()),
+    path('shop/admin', views.AdminPageView.as_view()),
     path('shop/<str:category>/<str:shopId>/', views.ShopPageView.as_view()),
     path('cart/', views.ShopCart.as_view()),
     url(r'^$', views.HomePageView.as_view()),
